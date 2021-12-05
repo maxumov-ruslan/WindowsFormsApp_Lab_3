@@ -11,5 +11,6 @@ namespace WindowsFormsApp_Lab_3
         void AddNode(int value);
         void RemoveLastNode();
         int Count { get; }
+        IEnumerable<Node> AddNodes { get; }
     }
 }

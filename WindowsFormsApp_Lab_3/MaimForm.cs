@@ -15,7 +15,7 @@ namespace WindowsFormsApp_Lab_3
 
         static Random random = new Random();
         List<IView> views = new List<IView>();
-        IModel model;
+        
         
         public MaimForm()
         {
@@ -23,12 +23,12 @@ namespace WindowsFormsApp_Lab_3
             Model =new MyModel();
             LabelView v = new LabelView(label1);
             v.Model = this.Model;
+            panelView1.Model=this.Model;
             AddView(v);
+            AddView(panelView1);
         }
         public IModel Model { get; set; }
        
-
-        
 
         private void UpdateAll()
         {

@@ -9,7 +9,9 @@ namespace WindowsFormsApp_Lab_3
     public  class Node
     {
         int x, y, value;
-
+        public int X => x;
+        public int Y => y;
+        public int Value => value;
         public Node(int x, int y, int value)
         {
             this.x = x;

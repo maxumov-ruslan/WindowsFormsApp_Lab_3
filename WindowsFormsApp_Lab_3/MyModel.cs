@@ -15,6 +15,8 @@ namespace WindowsFormsApp_Lab_3
         //public int Count => nodes.Count;
         public int Count { get =>nodes.Count ; }
 
+        public IEnumerable<Node> AddNodes => nodes;
+
         public void AddNode(int value)
         {
             Node n = new Node(value, random.Next(10), random.Next(10));

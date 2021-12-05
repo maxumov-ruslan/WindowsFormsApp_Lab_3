@@ -31,6 +31,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRemove = new System.Windows.Forms.Button();
+            this.panelView1 = new WindowsFormsApp_Lab_3.PanelView();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -63,11 +64,20 @@
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
+            // panelView1
+            // 
+            this.panelView1.Location = new System.Drawing.Point(13, 119);
+            this.panelView1.Model = null;
+            this.panelView1.Name = "panelView1";
+            this.panelView1.Size = new System.Drawing.Size(398, 235);
+            this.panelView1.TabIndex = 3;
+            // 
             // MaimForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panelView1);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAdd);
@@ -83,6 +93,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRemove;
+        private PanelView panelView1;
     }
 }
 
