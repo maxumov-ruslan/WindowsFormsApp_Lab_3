@@ -46,12 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IController.cs" />
+    <Compile Include="IModel.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="MaimForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MaimForm.Designer.cs">
       <DependentUpon>MaimForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyModel.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
