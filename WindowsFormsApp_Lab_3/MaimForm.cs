@@ -12,30 +12,48 @@ namespace WindowsFormsApp_Lab_3
 {
     public partial class MaimForm : Form,IController
     {
+
+        static Random random = new Random();
+        List<IView> views = new List<IView>();
+        IModel model;
+        
         public MaimForm()
         {
             InitializeComponent();
             Model =new MyModel();
+            LabelView v = new LabelView(label1);
+            v.Model = this.Model;
+            AddView(v);
         }
-        static Random random = new Random();
-        List<IView> views = new List<IView>();
-        IModel model;
-        public IModel Model { get ; set ; }
+        public IModel Model { get; set; }
+       
 
-        public void Add()
+        
+
+        private void UpdateAll()
         {
-            Model.AddNode(Model.Count + 1);
-            model.AddNode(random.Next(100));
+            //views.ForEach(view =>view.UpdateView());
+            foreach(IView view in views)
+            {
+                view.UpdateView();
+            }
         }
 
         public void AddView(IView view)
         {
+            
             views.Add(view);
+            view.UpdateView();
         }
-
+        public void Add()
+        {
+            Model.AddNode(Model.Count + 1);
+            UpdateAll();
+        }
         public void Remove()
         {
             Model.RemoveLastNode();
+            UpdateAll();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -46,6 +64,7 @@ namespace WindowsFormsApp_Lab_3
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             Remove();
+            
         }
     }
 }
