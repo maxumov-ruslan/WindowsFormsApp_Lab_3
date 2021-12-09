@@ -18,7 +18,7 @@ namespace WindowsFormsApp_Lab_3
             this.y = y;
             this.value = value;
         }
-
+       
         public override bool Equals(object obj)
         {
             return obj is Node node &&

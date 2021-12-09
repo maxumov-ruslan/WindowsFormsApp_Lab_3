@@ -7,14 +7,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp_Lab_3
 {
-    public class LabelView : IView
+    internal class MyDataGridView : DataGridView, IView
     {
         IModel model;
-        Label l;
-        public LabelView(Label l)
-        {
-            this.l = l;
-        }
         public IModel Model
         {
             get
@@ -26,11 +21,11 @@ namespace WindowsFormsApp_Lab_3
                 model = value;
             }
         }
-       
-       
+
         public void UpdateView()
         {
-            l.Text = $"N={Model.Count}";
+            AutoGenerateColumns = true; // в таблице будут все public-свойства узлов
+            DataSource = Model.AllNodes.ToArray();
         }
     }
 }

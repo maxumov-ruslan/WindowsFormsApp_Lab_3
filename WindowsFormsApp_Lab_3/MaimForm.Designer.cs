@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.panelView1 = new WindowsFormsApp_Lab_3.PanelView();
+            this.myDataGridView1 = new WindowsFormsApp_Lab_3.MyDataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -69,20 +71,32 @@
             this.panelView1.Location = new System.Drawing.Point(13, 119);
             this.panelView1.Model = null;
             this.panelView1.Name = "panelView1";
-            this.panelView1.Size = new System.Drawing.Size(398, 235);
+            this.panelView1.Size = new System.Drawing.Size(434, 303);
             this.panelView1.TabIndex = 3;
+            
+            // 
+            // myDataGridView1
+            // 
+            this.myDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myDataGridView1.Location = new System.Drawing.Point(564, 119);
+            this.myDataGridView1.Model = null;
+            this.myDataGridView1.Name = "myDataGridView1";
+            this.myDataGridView1.Size = new System.Drawing.Size(370, 303);
+            this.myDataGridView1.TabIndex = 4;
             // 
             // MaimForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(946, 450);
+            this.Controls.Add(this.myDataGridView1);
             this.Controls.Add(this.panelView1);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAdd);
             this.Name = "MaimForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.myDataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,6 +108,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRemove;
         private PanelView panelView1;
+        private MyDataGridView myDataGridView1;
     }
 }
 

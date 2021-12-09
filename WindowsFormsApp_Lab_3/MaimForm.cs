@@ -15,20 +15,41 @@ namespace WindowsFormsApp_Lab_3
 
         static Random random = new Random();
         List<IView> views = new List<IView>();
-        
-        
+        IModel model;
+
         public MaimForm()
         {
-            InitializeComponent();
-            Model =new MyModel();
-            LabelView v = new LabelView(label1);
-            v.Model = this.Model;
-            panelView1.Model=this.Model;
-            AddView(v);
-            AddView(panelView1);
+            {
+                panelView1 = new PanelView();
+
+                myDataGridView1 = new MyDataGridView();
+
+                InitializeComponent();
+
+                IView labView = new LabelView(label1);
+                model = new MyModel();
+
+                myDataGridView1.Model = model;
+                AddView(myDataGridView1);
+
+                labView.Model = model;
+                AddView(labView);
+
+                panelView1.Model = model;
+                panelView1.NodeClicked += PanelView1_NodeClicked;
+                AddView(panelView1);
+
+
+            }
         }
-        public IModel Model { get; set; }
-       
+
+        private void PanelView1_NodeClicked(Node node)
+        {
+            model.RemoveNode(node);
+        }
+
+        public IModel Model { get { return model; } set { model = value; } }
+
 
         private void UpdateAll()
         {
@@ -66,5 +87,12 @@ namespace WindowsFormsApp_Lab_3
             Remove();
             
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        
     }
 }

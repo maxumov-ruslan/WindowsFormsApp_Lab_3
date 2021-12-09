@@ -9,29 +9,36 @@ namespace WindowsFormsApp_Lab_3
 
     public class MyModel : IModel
     {
-        static Random random = new Random();
+        static Random r = new Random();
+        public event Action Changed;
 
         LinkedList<Node> nodes=new LinkedList<Node>();
         //public int Count => nodes.Count;
         public int Count { get =>nodes.Count ; }
 
-        public IEnumerable<Node> AddNodes => nodes;
+        //public IEnumerable<Node> AddNodes => nodes;
 
-        public void AddNode(int value)
-        {
-            Node n = new Node(value, random.Next(10), random.Next(10));
-            nodes.AddFirst(n);
-            //nodes.AddFirst(new Node(value, random.Next(10), random.Next(10)));
+        public LinkedList<Node> AllNodes => nodes;
 
-        }
 
         public void RemoveLastNode()
         {
-            if (nodes.Count >0)
-            {
-                nodes.RemoveFirst();
-            }
-            
+            nodes.RemoveLast();
+            if (Changed != null) Changed();
         }
+
+        public void AddNode(int value)
+        {
+            nodes.AddFirst(new Node(value, r.Next(10), r.Next(10)));
+            if (Changed != null) Changed();
+        }
+
+        public void RemoveNode(Node node)
+        {
+            nodes.Remove(node);
+            if (Changed != null) Changed();
+        }
+
+        
     }
 }

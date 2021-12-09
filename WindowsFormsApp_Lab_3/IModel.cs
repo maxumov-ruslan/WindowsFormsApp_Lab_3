@@ -8,9 +8,55 @@ namespace WindowsFormsApp_Lab_3
 {
     public interface IModel
     {
+        
+        event Action Changed;
+        LinkedList<Node> AllNodes { get; }
+
+
+
+
         void AddNode(int value);
         void RemoveLastNode();
         int Count { get; }
-        IEnumerable<Node> AddNodes { get; }
+        void RemoveNode(Node node);
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//в интрефейсе только событие,методы,свойства;
